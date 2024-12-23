@@ -43,7 +43,8 @@ def student_home(request):
 
 def student_view_attendance(request):
     student = Students.objects.get(admin=request.user.id) # Getting Logged in Student Data
-    course = student.course_id # Getting Course Enrolled of LoggedIn Student
+    course = student.course_id # Getting Course Enrolled of LoggedIn Student\
+
     # course = Courses.objects.get(id=student.course_id.id) # Getting Course Enrolled of LoggedIn Student
     subjects = Subjects.objects.filter(course_id=course) # Getting the Subjects of Course Enrolled
     context = {
@@ -54,7 +55,7 @@ def student_view_attendance(request):
 
 def student_view_attendance_post(request):
     if request.method != "POST":
-        messages.error(request, "Invalid Method")
+        messages.error(request, "Invalid Method!!")
         return redirect('student_view_attendance')
     else:
         # Getting all the Input Data
