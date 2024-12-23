@@ -18,7 +18,7 @@ def loginPage(request):
 
 def doLogin(request):
     if request.method != "POST":
-        return HttpResponse("<h2>Method Not Allowed</h2>")
+        return HttpResponse("<h2>Method Not  Allowed</h2>")
     else:
         user = EmailBackEnd.authenticate(request, username=request.POST.get('email'), password=request.POST.get('password'))
         if user != None:
